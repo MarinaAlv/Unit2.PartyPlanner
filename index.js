@@ -39,31 +39,45 @@ const deleteParty = async (id) => {
 }
 
 
-
-// RENDER
-const renderParties = () => {
-    const $partyList = document.querySelector("ul.parties")
-
-    if (!parties.length) {}
-}
-
 // === RENDER === 
 
 /**renders the parties in state as a list */
 const renderParties = () => {
-    const $partyList = document.querySelector = document.querySelector("ul.parties");
+    const $partyList = document.querySelector("ul.parties");
 
     if (!parties.length) {
-
+        $partyList.innerHTML = `
+        <li>No partieis at this time :(</li>
+        `;
+        return;
     }
-}
+
 
 const $parties = parties.map((party) => {
     const $li = document.createElement("li");
-    $li.innerHTML = '
+    $li.innerHTML =`
+    <h2>${party.name},</h2>
+    <time datetime="${party.date}">${party.date.slice(0, 10)}</time>
+    <address>${party.location}</address>
+    <p>${party.description}</p>
+    <button>Delete Party</button>
+    `;
+
+    const $button = $li.querySelector("button");
+    $button,addEventListener("click", async () => {
+
+    });
+
+    return $li;
+});
+  $partyList.replaceChildren(...$parties);
+};
+
+
     <h2>${party.name},</h2>
     <time datetime="${party.date"
     ';
+
 }
 )
 
